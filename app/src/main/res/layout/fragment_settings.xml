@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Settings Fragment — Screen 3
+    BT device selection, obstacle threshold, TTS speed, vibration toggle.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ── Bluetooth Device Selection ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth Device (HC-05)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Bluetooth device selection section" />
+
+        <Spinner
+            android:id="@+id/spinner_devices"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/spinner_background"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Select paired Bluetooth device" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_connect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Connect"
+                android:textSize="16sp"
+                android:contentDescription="Connect to selected Bluetooth device" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_disconnect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Disconnect"
+                android:textSize="16sp"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:contentDescription="Disconnect from Bluetooth device" />
+
+        </LinearLayout>
+
+        <!-- ── Obstacle Threshold ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Obstacle Alert Threshold"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"
+            android:contentDescription="Obstacle alert threshold setting" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alert when closer than: "
+                android:textSize="16sp"
+                android:textColor="@color/on_surface_secondary"
+                android:contentDescription="Alert distance label" />
+
+            <TextView
+                android:id="@+id/tv_threshold_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50 cm"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:contentDescription="Threshold value in centimetres" />
+
+        </LinearLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_threshold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="10"
+            android:valueTo="200"
+            android:stepSize="5"
+            android:value="50"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Obstacle threshold slider, 10 to 200 centimetres" />
+
+        <!-- ── TTS Speed ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Speech Rate"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"
+            android:contentDescription="Text to speech speed setting" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speed: "
+                android:textSize="16sp"
+                android:textColor="@color/on_surface_secondary"
+                android:contentDescription="Speech rate label" />
+
+            <TextView
+                android:id="@+id/tv_tts_speed_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.0×"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:contentDescription="Speech rate value" />
+
+        </LinearLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_tts_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="5"
+            android:valueTo="20"
+            android:stepSize="1"
+            android:value="10"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Speech rate slider, 0.5 to 2.0 times normal speed" />
+
+        <!-- ── Vibration Toggle ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Haptic Vibration"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:contentDescription="Haptic vibration toggle label" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_vibration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:contentDescription="Toggle haptic vibration feedback" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

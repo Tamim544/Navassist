@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  NavAssist Circuit Diagram
+  Simplified SVG representation of the breadboard circuit.
+
+  Components:
+    - Arduino Uno
+    - HC-SR04 Ultrasonic Sensor  (TRIG → Pin 9, ECHO → Pin 10)
+    - LDR Photoresistor          (A0, voltage divider with 10kΩ pull-down)
+    - HC-05 Bluetooth Module     (SoftwareSerial: RX=2, TX=3)
+    - 10kΩ resistor (LDR divider)
+    - 1kΩ + 2kΩ resistors (HC-05 TX voltage divider: 5V→3.3V)
+    - Breadboard + jumper wires
+    - 9V battery / USB power
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560"
+     font-family="monospace" font-size="12">
+
+  <!-- Background -->
+  <rect width="800" height="560" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#e0e0e0" font-size="18" font-weight="bold">
+    NavAssist — Circuit Diagram
+  </text>
+
+  <!-- ═══════════════════ ARDUINO UNO ═══════════════════ -->
+  <rect x="290" y="190" width="220" height="200" rx="8" fill="#1565C0" stroke="#42A5F5" stroke-width="2"/>
+  <text x="400" y="215" text-anchor="middle" fill="#fff" font-weight="bold" font-size="14">Arduino Uno</text>
+
+  <!-- Pin labels on Arduino -->
+  <!-- Left side (Digital) -->
+  <text x="302" y="250" fill="#90CAF9" font-size="10">D2 (BT-RX)</text>
+  <text x="302" y="268" fill="#90CAF9" font-size="10">D3 (BT-TX)</text>
+  <text x="302" y="286" fill="#90CAF9" font-size="10">D9 (TRIG)</text>
+  <text x="302" y="304" fill="#90CAF9" font-size="10">D10 (ECHO)</text>
+  <text x="302" y="322" fill="#90CAF9" font-size="10">A0 (LDR)</text>
+  <text x="302" y="340" fill="#FFB74D" font-size="10">5V</text>
+  <text x="302" y="358" fill="#EF9A9A" font-size="10">GND</text>
+
+  <!-- Pin dots -->
+  <circle cx="290" cy="247" r="4" fill="#42A5F5"/>
+  <circle cx="290" cy="265" r="4" fill="#42A5F5"/>
+  <circle cx="290" cy="283" r="4" fill="#42A5F5"/>
+  <circle cx="290" cy="301" r="4" fill="#42A5F5"/>
+  <circle cx="290" cy="319" r="4" fill="#42A5F5"/>
+  <circle cx="290" cy="337" r="4" fill="#FFB74D"/>
+  <circle cx="290" cy="355" r="4" fill="#EF9A9A"/>
+
+  <!-- ═══════════════════ HC-SR04 ULTRASONIC ═══════════════════ -->
+  <rect x="60" y="160" width="150" height="100" rx="6" fill="#2E7D32" stroke="#66BB6A" stroke-width="2"/>
+  <text x="135" y="185" text-anchor="middle" fill="#fff" font-weight="bold" font-size="13">HC-SR04</text>
+  <text x="135" y="202" text-anchor="middle" fill="#A5D6A7" font-size="11">Ultrasonic Sensor</text>
+
+  <!-- HC-SR04 pins -->
+  <text x="72" y="225" fill="#C8E6C9" font-size="10">VCC (5V)</text>
+  <text x="72" y="243" fill="#C8E6C9" font-size="10">TRIG → D9</text>
+  <text x="72" y="261" fill="#C8E6C9" font-size="10">ECHO → D10</text>
+  <text x="72" y="279" fill="#EF9A9A" font-size="10">GND</text>
+
+  <circle cx="210" cy="222" r="4" fill="#A5D6A7"/>
+  <circle cx="210" cy="240" r="4" fill="#A5D6A7"/>
+  <circle cx="210" cy="258" r="4" fill="#A5D6A7"/>
+  <circle cx="210" cy="276" r="4" fill="#EF9A9A"/>
+
+  <!-- Wires HC-SR04 to Arduino -->
+  <!-- TRIG wire (green) D9 -->
+  <polyline points="210,240 250,240 250,283 290,283" fill="none" stroke="#66BB6A" stroke-width="2"/>
+  <!-- ECHO wire (yellow) D10 -->
+  <polyline points="210,258 260,258 260,301 290,301" fill="none" stroke="#FFD54F" stroke-width="2"/>
+  <!-- 5V (red) -->
+  <polyline points="210,222 270,222 270,337 290,337" fill="none" stroke="#FF5252" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <!-- GND (black) -->
+  <polyline points="210,276 255,276 255,355 290,355" fill="none" stroke="#B0BEC5" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- ═══════════════════ HC-05 BLUETOOTH ═══════════════════ -->
+  <rect x="540" y="100" width="160" height="120" rx="6" fill="#6A1B9A" stroke="#CE93D8" stroke-width="2"/>
+  <text x="620" y="125" text-anchor="middle" fill="#fff" font-weight="bold" font-size="13">HC-05</text>
+  <text x="620" y="142" text-anchor="middle" fill="#E1BEE7" font-size="11">Bluetooth Module</text>
+
+  <text x="552" y="165" fill="#E1BEE7" font-size="10">VCC (5V)</text>
+  <text x="552" y="183" fill="#E1BEE7" font-size="10">GND</text>
+  <text x="552" y="201" fill="#E1BEE7" font-size="10">TXD → D2</text>
+  <text x="552" y="219" fill="#E1BEE7" font-size="10">RXD ← D3*</text>
+
+  <circle cx="540" cy="162" r="4" fill="#CE93D8"/>
+  <circle cx="540" cy="180" r="4" fill="#EF9A9A"/>
+  <circle cx="540" cy="198" r="4" fill="#CE93D8"/>
+  <circle cx="540" cy="216" r="4" fill="#CE93D8"/>
+
+  <!-- Wires HC-05 to Arduino -->
+  <!-- TXD to D2 -->
+  <polyline points="540,198 510,198 510,247 510,247 490,247" fill="none" stroke="#CE93D8" stroke-width="2"/>
+  <polyline points="490,247 290,247" fill="none" stroke="#CE93D8" stroke-width="2"/>
+  <!-- RXD from D3 (via voltage divider - dashed) -->
+  <polyline points="290,265 480,265 480,216 540,216" fill="none" stroke="#FFB74D" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Voltage divider note for HC-05 RX -->
+  <rect x="560" y="232" width="170" height="28" rx="4" fill="#4A148C" stroke="#7B1FA2" stroke-width="1"/>
+  <text x="645" y="244" text-anchor="middle" fill="#E1BEE7" font-size="9">* 1kΩ + 2kΩ voltage divider</text>
+  <text x="645" y="256" text-anchor="middle" fill="#E1BEE7" font-size="9">  (5V → 3.3V for HC-05 RX)</text>
+
+  <!-- ═══════════════════ LDR CIRCUIT ═══════════════════ -->
+  <rect x="540" y="290" width="160" height="130" rx="6" fill="#E65100" stroke="#FFA726" stroke-width="2"/>
+  <text x="620" y="315" text-anchor="middle" fill="#fff" font-weight="bold" font-size="13">LDR Circuit</text>
+
+  <text x="552" y="340" fill="#FFE0B2" font-size="10">5V ──┬── LDR</text>
+  <text x="552" y="358" fill="#FFE0B2" font-size="10">     └→ A0 (Arduino)</text>
+  <text x="552" y="376" fill="#FFE0B2" font-size="10">10kΩ pull-down to GND</text>
+  <text x="552" y="394" fill="#FFE0B2" font-size="10">Raw: 0(bright)–1023(dark)</text>
+  <text x="552" y="410" fill="#FFCC80" font-size="9">dark&lt;200 | dim 200-600 | bright&gt;600</text>
+
+  <!-- Wire LDR to A0 -->
+  <polyline points="540,355 510,355 510,319 290,319" fill="none" stroke="#FFA726" stroke-width="2"/>
+
+  <!-- ═══════════════════ LEGEND ═══════════════════ -->
+  <rect x="30" y="420" width="740" height="110" rx="6" fill="#0D1B2A" stroke="#37474F" stroke-width="1"/>
+  <text x="400" y="440" text-anchor="middle" fill="#CFD8DC" font-weight="bold" font-size="13">Legend</text>
+
+  <line x1="50" y1="458" x2="90" y2="458" stroke="#66BB6A" stroke-width="2"/>
+  <text x="95" y="462" fill="#CFD8DC" font-size="11">TRIG signal (D9)</text>
+
+  <line x1="50" y1="476" x2="90" y2="476" stroke="#FFD54F" stroke-width="2"/>
+  <text x="95" y="480" fill="#CFD8DC" font-size="11">ECHO signal (D10)</text>
+
+  <line x1="50" y1="494" x2="90" y2="494" stroke="#CE93D8" stroke-width="2"/>
+  <text x="95" y="498" fill="#CFD8DC" font-size="11">BT TXD → D2</text>
+
+  <line x1="50" y1="512" x2="90" y2="512" stroke="#FFB74D" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="95" y="516" fill="#CFD8DC" font-size="11">D3 → BT RXD (via divider)</text>
+
+  <line x1="270" y1="458" x2="310" y2="458" stroke="#FF5252" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="315" y="462" fill="#CFD8DC" font-size="11">5V power</text>
+
+  <line x1="270" y1="476" x2="310" y2="476" stroke="#B0BEC5" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="315" y="480" fill="#CFD8DC" font-size="11">GND</text>
+
+  <line x1="270" y1="494" x2="310" y2="494" stroke="#FFA726" stroke-width="2"/>
+  <text x="315" y="498" fill="#CFD8DC" font-size="11">LDR → A0</text>
+
+  <text x="550" y="458" fill="#CFD8DC" font-size="11">Power: 9V battery or USB (5V)</text>
+  <text x="550" y="476" fill="#CFD8DC" font-size="11">HC-05 baud: 9600</text>
+  <text x="550" y="494" fill="#CFD8DC" font-size="11">JSON format: {"d":45,"l":312}\n</text>
+  <text x="550" y="512" fill="#CFD8DC" font-size="11">Update rate: 200 ms (5 Hz)</text>
+
+</svg>
