@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme — high-contrast dark theme for low-vision users -->
+    <style name="Theme.NavAssist" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColorPrimary">@color/on_surface</item>
+        <item name="android:textColorSecondary">@color/on_surface_secondary</item>
+        <!-- Enforce large minimum text size for low-vision accessibility -->
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Action bar / toolbar style -->
+    <style name="Theme.NavAssist.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+</resources>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Dashboard Fragment — Screen 1
+    Live distance gauge, LDR light bar, activity label, BT status.
+    High-contrast design with large text (sp 20+) for low-vision users.
+    All elements have contentDescription for TalkBack.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- ── Bluetooth Status ── -->
+        <TextView
+            android:id="@+id/tv_bt_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="○ Disconnected"
+            android:textSize="20sp"
+            android:textColor="@color/bt_disconnected"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Bluetooth status" />
+
+        <!-- ── Distance Card ── -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distance (HC-SR04)"
+                    android:textSize="14sp"
+                    android:textColor="@color/on_surface_secondary"
+                    android:contentDescription="Ultrasonic distance sensor label" />
+
+                <TextView
+                    android:id="@+id/tv_distance_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="— cm"
+                    android:textSize="48sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="Distance value" />
+
+                <ProgressBar
+                    android:id="@+id/progress_distance"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:max="400"
+                    android:progress="0"
+                    android:progressTint="@color/primary"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Distance gauge: no reading" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ── LDR / Light Card ── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light Level (LDR)"
+                    android:textSize="14sp"
+                    android:textColor="@color/on_surface_secondary"
+                    android:contentDescription="LDR light sensor label" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+
+                    <!-- Coloured indicator dot -->
+                    <View
+                        android:id="@+id/view_light_indicator"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/circle_indicator"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Light level colour indicator" />
+
+                    <TextView
+                        android:id="@+id/tv_light_level"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="—"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:contentDescription="Light level label" />
+
+                    <TextView
+                        android:id="@+id/tv_ldr_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:contentDescription="LDR raw value" />
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_ldr"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:max="1023"
+                    android:progress="0"
+                    android:progressTint="@color/accent"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Light sensor progress bar" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ── Activity Label Card ── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Activity (ARC)"
+                    android:textSize="14sp"
+                    android:textColor="@color/on_surface_secondary"
+                    android:contentDescription="Activity recognition label" />
+
+                <TextView
+                    android:id="@+id/tv_activity_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Initialising…"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="Activity: Initialising" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ── Smartphone Sensor Card ── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Sensors"
+                    android:textSize="14sp"
+                    android:textColor="@color/on_surface_secondary"
+                    android:contentDescription="Smartphone sensor data section" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accelerometer: "
+                        android:textSize="16sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:contentDescription="Accelerometer label" />
+
+                    <TextView
+                        android:id="@+id/tv_accel_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textSize="16sp"
+                        android:textColor="@color/on_surface"
+                        android:contentDescription="Accelerometer magnitude value" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Light: "
+                        android:textSize="16sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:contentDescription="Phone light sensor label" />
+
+                    <TextView
+                        android:id="@+id/tv_phone_lux"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textSize="16sp"
+                        android:textColor="@color/on_surface"
+                        android:contentDescription="Phone ambient light value in lux" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
