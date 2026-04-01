@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NavAssist</string>
+
+    <!-- Bottom navigation labels -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+    <string name="bottom_navigation_desc">Main navigation tabs</string>
+
+    <!-- Dashboard -->
+    <string name="label_distance">Distance (HC-SR04)</string>
+    <string name="label_light">Light Level (LDR)</string>
+    <string name="label_activity">Current Activity (ARC)</string>
+    <string name="label_phone_sensors">Phone Sensors</string>
+    <string name="bt_connected">● Connected</string>
+    <string name="bt_disconnected">○ Disconnected</string>
+
+    <!-- History -->
+    <string name="history_empty">No readings stored yet.\nStart navigation to record data.</string>
+
+    <!-- Settings -->
+    <string name="label_bt_device">Bluetooth Device (HC-05)</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="label_threshold">Obstacle Alert Threshold</string>
+    <string name="label_tts_speed">Speech Rate</string>
+    <string name="label_vibration">Haptic Vibration</string>
+
+    <!-- TTS messages -->
+    <string name="tts_obstacle">Obstacle %1$d centimetres ahead</string>
+    <string name="tts_dark">Low light detected, use caution</string>
+    <string name="tts_entering_room">Entering room</string>
+    <string name="tts_connected">Bluetooth connected to %1$s</string>
+</resources>

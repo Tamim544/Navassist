@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- History / list icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorControlNormal">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M13,3C8.03,3 4,7.03 4,12H1L4.89,15.89L4.96,16.03L9,12H6C6,8.13
+                         9.13,5 13,5s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79
+                         -4.94,-2.06L6.62,18.38C8.27,20.01 10.51,21 13,21c4.97,0
+                         9,-4.03 9,-9S17.97,3 13,3zM12,8v5l4.28,2.54
+                         0.72,-1.21 -3.5,-2.08V8H12z" />
+</vector>
